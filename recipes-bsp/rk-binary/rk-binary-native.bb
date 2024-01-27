@@ -8,8 +8,8 @@ DESCRIPTION = "Rockchip binary tools"
 LICENSE = "LICENSE.rockchip"
 LIC_FILES_CHKSUM = "file://${RKBASE}/licenses/LICENSE.rockchip;md5=d63890e209bf038f44e708bbb13e4ed9"
 SRC_URI = " \
-	git://github.com/JeffyCN/mirrors.git;protocol=https;nobranch=1;branch=rkbin-2021_10_13;name=rkbin \
-	git://github.com/JeffyCN/mirrors.git;protocol=https;branch=tools;name=tools;destsuffix=git/extra \
+	git://github.com/picocom-chips/rkbin.git;protocol=https;branch=picocom/rk3399-master;name=rkbin \
+	git://github.com/picocom-chips/rktools.git;protocol=https;branch=picocom/rk3399-master;name=tools;destsuffix=git/extra \
 "
 
 SRCREV_rkbin = "c41b714cacd249e3ef69b2bbe774da5095eefd72"
