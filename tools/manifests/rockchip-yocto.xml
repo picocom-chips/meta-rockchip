@@ -3,11 +3,11 @@
 <manifest>
   <remote name="openembedded" fetch="https://github.com/openembedded/" />
   <remote name="yocto" fetch="https://github.com/yoctoproject/" />
-  <remote name="riscv" fetch="https://github.com/riscv/" />
+  <remote name="picocom" fetch="https://github.com/picocom-chips/" />
   <default remote="openembedded" revision="master" />
 
-  <project name="meta-rockchip" remote="yocto" path="meta-rockchip" revision="master" />
-  <project name="poky" remote="yocto" path="poky" revision="master" />
-  <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="master" />
+  <project name="meta-rockchip" remote="picocom" path="meta-rockchip" revision="picocom/rk3399-master" />
+  <project name="poky" remote="yocto" path="poky" revision="kirkstone" />
+  <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="kirkstone" />
 
 </manifest>
