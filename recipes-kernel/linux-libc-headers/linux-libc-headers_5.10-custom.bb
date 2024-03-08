@@ -7,9 +7,10 @@ inherit auto-patch
 
 inherit local-git
 
-SRCREV = "72de5a560a44fb81549f1da325a1b3e323a7aaf7"
+SRCREV = "604cec4004abe5a96c734f2fab7b74809d2d742f"
+BRANCH = "picocom/rk3399-master"
 SRC_URI = " \
-	git://github.com/JeffyCN/mirrors.git;protocol=https;nobranch=1;branch=kernel-5.10-2022_01_10; \
+	git://git@github.com/picocom-chips/linux.git;protocol=ssh;branch=${BRANCH}; \
 "
 
 S = "${WORKDIR}/git"

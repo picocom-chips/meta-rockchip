@@ -6,9 +6,10 @@ require linux-rockchip.inc
 
 inherit local-git
 
-SRCREV = "ab17ca40b20859bb662971e26522b0ec53aad492"
+SRCREV = "fb30fe7d37ec01512d402612d88d4375d31dfa8d"
+BRANCH = "picocom/rk3399-master"
 SRC_URI = " \
-	git://github.com/picocom-chips/linux.git;protocol=https;branch=picocom/rk3399-master; \
+	git://git@github.com/picocom-chips/linux.git;protocol=ssh;branch=${BRANCH}; \
 	file://${THISDIR}/files/cgroups.cfg \
 "
 

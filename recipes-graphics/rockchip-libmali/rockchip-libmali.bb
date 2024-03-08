@@ -9,8 +9,9 @@ LIC_FILES_CHKSUM = "file://END_USER_LICENCE_AGREEMENT.txt;md5=3918cc9836ad038c5a
 
 inherit local-git
 
+BRANCH = "picocom/rk3399-master"
 SRC_URI = " \
-	git://github.com/picocom-chips/libmali.git;protocol=https;branch=picocom/rk3399-master; \
+	git://github.com/picocom-chips/libmali.git;protocol=https;branch=${BRANCH}; \
 "
 SRCREV = "6696882361a70284cc9198f1841aff1efb760dab"
 S = "${WORKDIR}/git"

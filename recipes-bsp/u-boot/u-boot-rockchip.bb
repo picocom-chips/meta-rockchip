@@ -17,11 +17,12 @@ PV = "2017.09"
 
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 
-SRCREV = "a93658f8f45dc0266be21840931131b10c325e03"
+SRCREV = "d48c60f8516a79da5a0596d1cf5e444b017b4d51"
 SRCREV_rkbin = "c41b714cacd249e3ef69b2bbe774da5095eefd72"
+BRANCH = "picocom/rk3399-master"
 SRC_URI = " \
-	git://github.com/picocom-chips/u-boot.git;protocol=https;branch=picocom/rk3399-master; \
-	git://github.com/picocom-chips/rkbin.git;protocol=https;branch=picocom/rk3399-master;name=rkbin;destsuffix=rkbin; \
+	git://github.com/picocom-chips/u-boot.git;protocol=https;branch=${BRANCH}; \
+	git://github.com/picocom-chips/rkbin.git;protocol=https;branch=${BRANCH};name=rkbin;destsuffix=rkbin; \
 "
 
 SRCREV_FORMAT = "default_rkbin"
