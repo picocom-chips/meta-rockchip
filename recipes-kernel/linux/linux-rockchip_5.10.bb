@@ -6,8 +6,14 @@ require linux-rockchip.inc
 
 inherit local-git
 
-SRCREV = "fb30fe7d37ec01512d402612d88d4375d31dfa8d"
-BRANCH = "picocom/rk3399-master"
+SRCREV_NON_RT = "3f9d6d9bd5a4791455a70b1d7f5874e95736f24c"
+BRANCH_NON_RT = "picocom/rk3399-master"
+
+SRCREV_RT = "63985a49ff3f6e7fa3caa664d3bfc37a3773c66e"
+BRANCH_RT = "picocom/rk3399-rt-master"
+
+SRCREV = "${@d.getVar('SRCREV_RT') if d.getVar('ENABLE_PREEMPT_RT') == 'true' else d.getVar('SRCREV_NON_RT')}"
+BRANCH = "${@d.getVar('BRANCH_RT') if d.getVar('ENABLE_PREEMPT_RT') == 'true' else d.getVar('BRANCH_NON_RT')}"
 SRC_URI = " \
 	git://git@github.com/picocom-chips/linux.git;protocol=ssh;branch=${BRANCH}; \
 	file://${THISDIR}/files/cgroups.cfg \
