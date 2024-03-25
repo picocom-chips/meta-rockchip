@@ -1,20 +1,21 @@
-From 142c2f03d9b2b5264112dddd36c658954cf877b8 Mon Sep 17 00:00:00 2001
+From 30372ea1f39a365e462eeccb847391cbcb4b80d9 Mon Sep 17 00:00:00 2001
 From: Jeffy Chen <jeffy.chen@rock-chips.com>
 Date: Mon, 16 Jul 2018 09:53:40 +0800
 Subject: [PATCH] Support rebooting with arg
 
 Signed-off-by: Jeffy Chen <jeffy.chen@rock-chips.com>
+
 ---
  src/halt.c | 19 +++++++++++++++++--
  1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/src/halt.c b/src/halt.c
-index 499e973..26e6c86 100644
+index a469147..d1d0b92 100644
 --- a/src/halt.c
 +++ b/src/halt.c
-@@ -58,6 +58,9 @@
- #include <getopt.h>
+@@ -59,6 +59,9 @@
  #include "reboot.h"
+ #include "runlevellog.h"
  
 +#include <linux/reboot.h>
 +#include <sys/syscall.h>
@@ -22,7 +23,7 @@ index 499e973..26e6c86 100644
  char *Version = "@(#)halt  2.86  31-Jul-2004 miquels@cistron.nl";
  char *progname;
  
-@@ -184,6 +187,7 @@ int main(int argc, char **argv)
+@@ -195,6 +198,7 @@ int main(int argc, char **argv)
  	int do_poweroff = 0;
  	int c;
  	char *tm = NULL;
@@ -30,7 +31,7 @@ index 499e973..26e6c86 100644
  
  	/*
  	 *	Find out who we are
-@@ -232,7 +236,8 @@ int main(int argc, char **argv)
+@@ -243,7 +247,8 @@ int main(int argc, char **argv)
  				usage();
  		}
  	 }
@@ -40,16 +41,16 @@ index 499e973..26e6c86 100644
  
  	if (geteuid() != 0) {
  		fprintf(stderr, "%s: must be superuser.\n", progname);
-@@ -241,7 +246,7 @@ int main(int argc, char **argv)
- 
- 	(void)chdir("/");
+@@ -255,7 +260,7 @@ int main(int argc, char **argv)
+ 		exit(1);
+ 	}
  
 -	if (!do_hard && !do_nothing) {
 +	if (!do_hard && !do_nothing && !extra_arg) {
  		/*
  		 *	See if we are in runlevel 0 or 6.
  		 */
-@@ -277,6 +282,16 @@ int main(int argc, char **argv)
+@@ -295,6 +300,16 @@ int main(int argc, char **argv)
  	if (do_nothing) exit(0);
  
  	if (do_reboot) {
@@ -66,6 +67,3 @@ index 499e973..26e6c86 100644
  		init_reboot(BMAGIC_REBOOT);
  	} else {
  		/*
--- 
-2.11.0
-
