@@ -6,10 +6,10 @@ require linux-rockchip.inc
 
 inherit local-git
 
-SRCREV_NON_RT = "a6199d368a0aae5ed74efd2cdf35baebd9654e97"
+SRCREV_NON_RT = "f3b38b9af64044b2f5e56b81c3657130d7fa0404"
 BRANCH_NON_RT = "picocom/rk3399-master"
 
-SRCREV_RT = "84fa84de16630ed383f58ba074c3d9dceb83a86e"
+SRCREV_RT = "39c4399ae70c03d4b8b334c3c25284e6c0872f36"
 BRANCH_RT = "picocom/rk3399-rt-master"
 
 SRCREV = "${@d.getVar('SRCREV_RT') if d.getVar('ENABLE_PREEMPT_RT') == 'true' else d.getVar('SRCREV_NON_RT')}"
