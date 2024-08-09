@@ -9,7 +9,7 @@ inherit local-git
 SRCREV_NON_RT = "f3b38b9af64044b2f5e56b81c3657130d7fa0404"
 BRANCH_NON_RT = "picocom/rk3399-master"
 
-SRCREV_RT = "39c4399ae70c03d4b8b334c3c25284e6c0872f36"
+SRCREV_RT = "08246c3dd695fb683de4876b206af6765555691d"
 BRANCH_RT = "picocom/rk3399-rt-master"
 
 SRCREV = "${@d.getVar('SRCREV_RT') if d.getVar('ENABLE_PREEMPT_RT') == 'true' else d.getVar('SRCREV_NON_RT')}"
